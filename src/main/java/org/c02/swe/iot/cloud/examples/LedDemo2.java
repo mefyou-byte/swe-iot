@@ -24,8 +24,6 @@ public class LedDemo2 {
 
 		api.callMethod("ledsOff", null);
 
-
-
 	}
 
 }
