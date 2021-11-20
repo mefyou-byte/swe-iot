@@ -15,7 +15,7 @@ public class LedDemo {
 
 	public static void main(String[] args) throws IOException, ParticleException {
 
-		/*api.callMethod("ledsOff", null); // Schaltet die LEDs aus
+		api.callMethod("ledsOff", null); // Schaltet die LEDs aus
 		// nn = Position 01-12
 		// rrr = rot
 		// ggg = grün
@@ -26,15 +26,7 @@ public class LedDemo {
 		api.callMethod("led", "06000255000"); //green
 		api.callMethod("led", "07000000255"); //blue
 		api.callMethod("led", "11000255255");
-*/
-		// api.callMethod("ledsOff", null);
 
-		Button button = new Button(api);
-
-		button.allLedsOff();
-
-		for (int i = 1; i <= 12 ; i++) {
-			button.setLed(i, Color.blue);
-		}
+		api.callMethod("ledsOff", null);
 	}
 }

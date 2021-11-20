@@ -17,7 +17,7 @@ public class Button implements IButton {
 
     public void setLed(int position, Color color) throws ParticleException {
 
-        if (position < 1)
+        if (position < 1 || position > 12)
             throw new IllegalArgumentException();
 
         DecimalFormat df = new DecimalFormat("00") ;
