@@ -1,18 +1,18 @@
 package org.c02.iot;
 
 import org.c02.swe.iot.Button;
-import org.c02.swe.iot.IButton;
-import org.c02.swe.iot.LedStatus;
 import org.c02.swe.iot.cloud.api.IParticleApi;
 import org.c02.swe.iot.cloud.api.ParticleException;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+
+import static org.mockito.Mockito.*;
 
 public class ButtonTest {
+
+
     @Test
     public void testWrapper() throws ParticleException {
 
@@ -22,9 +22,10 @@ public class ButtonTest {
 
         testButton.allLedsOff();
 
-        Mockito.verify(api).callMethod("ledsOff", null);
+        verify(api).callMethod("ledsOff", null);
 
     }
+
     @Test
     public void testWrapperLed() throws ParticleException {
 
@@ -34,7 +35,7 @@ public class ButtonTest {
 
         testButton.setLed(1, Color.white);
 
-        Mockito.verify(api).callMethod("led", "01255255255");
+        verify(api).callMethod("led", "01255255255");
 
     }
 
@@ -47,6 +48,8 @@ public class ButtonTest {
 
         testButton.setLed(-1, Color.white);
 
+        // With wrong parameters the method must throw an IllegalArgumentException
+        verify(api, never()).callMethod(anyString(), anyString());
     }
 
 }
